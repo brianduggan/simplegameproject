@@ -142,9 +142,9 @@ function roundOne(){
       player1 = drawCard(),
       player2 = drawCard(),
       computerHand = [computer1, computer2],
-      playerHand = [player1, player2],
-      computerTotal = handTotal(computerHand),
-      playerTotal = handTotal(playerHand);
+      playerHand = [player1, player2];
+  computerTotal = handTotal(computerHand);
+  playerTotal = handTotal(playerHand);
 
   displayHand([player1, player2], "player");
   displayHand(["X", computer2], "dealer");
@@ -179,7 +179,6 @@ function playerMove(array){
   var oldPlayerHand = array[0];
   var player = array[1];
 
-
   if (player > 20){
     $hit.hide();
     $stay.hide();
@@ -187,7 +186,6 @@ function playerMove(array){
   } else if (player < 21){
     $hit.show();
     $stay.show();
-
     $hit.on('click',function (){
       var newCard = drawCard();
       displayHand(newCard, "player");
@@ -204,7 +202,6 @@ function playerMove(array){
       return [oldPlayerHand];
     });
   }
-
 
 } //////// END PLAYER HIT STAND FUNCTION ///////
 
@@ -270,6 +267,7 @@ other idea, set span equal to player total, do a while loop on $.text() === of i
 function startGame(){
 
   var firstRound = roundOne();
+  console.log(playerTotal);
   var playerStart = playerMove(firstRound);
 
 }

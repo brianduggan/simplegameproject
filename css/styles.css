@@ -1,5 +1,30 @@
 body {
-  background-color: skyblue;
+  background-color: lightgray;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+#cards {
+  color: darkgrey;
+  height: 350px;
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+  padding: 10px;
+  background-color: darkolivegreen;
+  border: 2px solid firebrick;
+  border-radius: 32%;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+#buttons {
+  text-align: center;
 }
 
 span {
