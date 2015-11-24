@@ -150,23 +150,19 @@ Blackjack.prototype.renderHit = function (card) {
 };
 
 Blackjack.prototype.renderDealer = function (){
-  var $span1 = $('<span>').text("XX");
+  var $span1 = $('<span>').text("XX").css("color","white");
   $dealerCards.append($span1.delay(6000));
 
   var $span2;
   $span2 = $('<span>').css("color", this.gameState[1][1].color);
   $span2.append(this.gameState[1][1].name);
   $dealerCards.append($span2.delay(10000));
-
 };
 
 Blackjack.prototype.renderFirst = function (){
   var card = this.gameState[1][0];
-  if (card.suit === "♥" || card.suit === "♦"){
-    $dealerCards.children().eq(0).text(card.name).css("color", "red");
-  } else {
-    $dealerCards.children().eq(0).text(card.name).css("color", "black");
-  }
+  $dealerCards.children().eq(0).text(card.name).css("color", card.color);
+
 };
 
 
@@ -237,17 +233,17 @@ $(document).ready(function(){
 
     $result.hide();
     if (game.computerTotal() > 21){
-      $result.text("Dealer Busts!!! Player Wins!!!").fadeIn(12000);
+      $result.text("Dealer Busts!!! Player Wins!!!").fadeIn(7000);
     } else if (game.computerTotal() === 21 && game.playerTotal() === 21){
-      $result.text("Push!!! Both players have Blackjack").fadeIn(12000);
+      $result.text("Push!!! Both players have Blackjack").fadeIn(7000);
     } else if (game.playerTotal() === 21){
-      $result.text("Player has Blackjack!!!").fadeIn(12000);
+      $result.text("Player has Blackjack!!!").fadeIn(7000);
     } else if (game.computerTotal() > game.playerTotal()){
-      $result.text("Dealer Wins!").fadeIn(12000);
+      $result.text("Dealer Wins!").fadeIn(7000);
     } else if (game.playerTotal() > game.computerTotal()){
-      $result.text("Player Wins!").fadeIn(12000);
+      $result.text("Player Wins!").fadeIn(7000);
     } else if (game.computerTotal() === game.playerTotal()){
-      $result.text("Dealer Wins!").fadeIn(12000);
+      $result.text("Dealer Wins!").fadeIn(7000);
     }
     $dealComp.hide();
 

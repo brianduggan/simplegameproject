@@ -1,23 +1,24 @@
 body {
-  background-color: lightgray;
+  background: url('http://diywoodwork.net/wp-content/uploads/2015/03/wood-background-design-decorating-7.jpg');
   font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
   text-align: center;
+  color: aliceblue;
 }
 
 #cards {
-  color: darkgrey;
+  color: blanchedalmond;
   height: 392px;
   text-align: center;
   margin: 0 auto;
   width: 80%;
   padding: 10px;
   background-color: darkolivegreen;
-  border: 2px solid firebrick;
+  border: 2px solid darkgreen;
   border-radius: 32%;
-  box-shadow: 2px 3px darkgrey;
+  box-shadow: 2px 3px rgba(0,0,0,0.35);
 }
 
 h2 {
@@ -34,13 +35,13 @@ span {
   display: inline-block;
   line-height: 1.5em;
   height: 48px;
-  width: 32px;
+  width: 27px;
 }
 
 
 #result {
   text-align: center;
-  color: red;
+  color: aliceblue;
   padding: 30px;
 }
 
