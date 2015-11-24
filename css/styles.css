@@ -9,7 +9,7 @@ h1 {
 
 #cards {
   color: darkgrey;
-  height: 350px;
+  height: 392px;
   text-align: center;
   margin: 0 auto;
   width: 80%;
@@ -25,21 +25,46 @@ h2 {
 }
 
 #buttons {
+  margin-top: 20px;
   text-align: center;
 }
 
 span {
   padding: 10px;
+  display: inline-block;
+  line-height: 1.5em;
+  height: 48px;
+  width: 32px;
 }
 
 
 #result {
   text-align: center;
+  color: red;
+  padding: 30px;
+}
+
+#submit {
+  float: right;
+}
+
+#player-cards span{
+  background-color: white;
+  margin: 2px;
+  border-radius: 10%;
+}
+
+#dealer-cards span {
+  background-color: white;
+  margin: 2px;
+  border-radius: 10%;
+}
+
+#submit {
+  padding: 20px;
 }
 
 
-
-
-
+/* JQuery animate, css transform
 
 /**/

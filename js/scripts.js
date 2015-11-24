@@ -1,8 +1,4 @@
-// GAME STATE & LOGIC
-
-// DISPLAY
-
-// INTERACTION
+//////// SET JQUERY DOM VARIABLES ////////
 var $playerScore = $('#player-score'),
     $playerCards = $('#player-cards'),
     $dealerScore = $('#dealer-score'),
@@ -10,49 +6,46 @@ var $playerScore = $('#player-score'),
     $hit = $('#hit'),
     $stand = $('#stand'),
     $dealComp = $('#deal-computer'),
-    $result = $('#result');
+    $result = $('#result'),
+    $submit = $('#submit');
 
-
-// var deck = ["2♠","3♠","4♠","5♠","6♠","7♠","8♠","9♠","J♠","Q♠","K♠","A♠",
-//         "2♣","3♣","4♣","5♣","6♣","7♣","8♣","9♣","J♣","Q♣","K♣","A♣",
-//         "2♥","3♥","4♥","5♥","6♥","7♥","8♥","9♥","J♥","Q♥","K♥","A♥",
-//         "2♦","3♦","4♦","5♦","6♦","7♦","8♦","9♦","J♦","Q♦","K♦","A♦"];
-
+/////// SET DECK //////// , color: "black"
 var deck = [
-  {name: "2♠", value: 2, suit: "♠" }, {name: "3♠", value: 3, suit: "♠" },
-  {name: "4♠", value: 4, suit: "♠" }, {name: "5♠", value: 5, suit: "♠" },
-  {name: "6♠", value: 6, suit: "♠" }, {name: "7♠", value: 7, suit: "♠" },
-  {name: "8♠", value: 8, suit: "♠" }, {name: "9♠", value: 9, suit: "♠" },
-  {name: "10♠", value: 10, suit: "♠" }, {name: "J♠", value: 10, suit: "♠" },
-  {name: "Q♠", value: 10, suit: "♠" }, {name: "K♠", value: 10, suit: "♠" },
-  {name: "A♠", value: 11, suit: "♠", altValue: 1},
-  {name: "2♣", value: 2, suit: "♣" }, {name: "3♣", value: 3, suit: "♣" },
-  {name: "4♣", value: 4, suit: "♣" }, {name: "5♣", value: 5, suit: "♣" },
-  {name: "6♣", value: 6, suit: "♣" }, {name: "7♣", value: 7, suit: "♣" },
-  {name: "8♣", value: 8, suit: "♣" }, {name: "9♣", value: 9, suit: "♣" },
-  {name: "10♣", value: 10, suit: "♣" }, {name: "J♣", value: 10, suit: "♣" },
-  {name: "Q♣", value: 10, suit: "♣" }, {name: "K♣", value: 10, suit: "♣" },
-  {name: "A♣", value: 11, suit: "♣", altValue: 1},
-  {name: "2♥", value: 2, suit: "♥" }, {name: "3♥", value: 3, suit: "♥" },
-  {name: "4♥", value: 4, suit: "♥" }, {name: "5♥", value: 5, suit: "♥" },
-  {name: "6♥", value: 6, suit: "♥" }, {name: "7♥", value: 7, suit: "♥" },
-  {name: "8♥", value: 8, suit: "♥" }, {name: "9♥", value: 9, suit: "♥" },
-  {name: "10♥", value: 10, suit: "♥" }, {name: "J♥", value: 10, suit: "♥" },
-  {name: "Q♥", value: 10, suit: "♥" }, {name: "K♥", value: 10, suit: "♥" },
-  {name: "A♥", value: 11, suit: "♥", altValue: 1},
-  {name: "2♦", value: 2, suit: "♦" }, {name: "3♦", value: 3, suit: "♦" },
-  {name: "4♦", value: 4, suit: "♦" }, {name: "5♦", value: 5, suit: "♦" },
-  {name: "6♦", value: 6, suit: "♦" }, {name: "7♦", value: 7, suit: "♦" },
-  {name: "8♦", value: 8, suit: "♦" }, {name: "9♦", value: 9, suit: "♦" },
-  {name: "10♦", value: 10, suit: "♦" }, {name: "J♦", value: 10, suit: "♦" },
-  {name: "Q♦", value: 10, suit: "♦" }, {name: "K♦", value: 10, suit: "♦" },
-  {name: "A♦", value: 11, suit: "♦", altValue: 1}
+  {name: "2♠", value: 2, color: "black" }, {name: "3♠", value: 3, color: "black" },
+  {name: "4♠", value: 4, color: "black" }, {name: "5♠", value: 5, color: "black" },
+  {name: "6♠", value: 6, color: "black" }, {name: "7♠", value: 7, color: "black" },
+  {name: "8♠", value: 8, color: "black" }, {name: "9♠", value: 9, color: "black" },
+  {name: "10♠", value: 10, color: "black" }, {name: "J♠", value: 10, color: "black" },
+  {name: "Q♠", value: 10, color: "black" }, {name: "K♠", value: 10, color: "black" },
+  {name: "A♠", value: 11, altValue: 1, color: "black"},
+  {name: "2♣", value: 2, color: "black" }, {name: "3♣", value: 3, color: "black" },
+  {name: "4♣", value: 4, color: "black" }, {name: "5♣", value: 5, color: "black" },
+  {name: "6♣", value: 6, color: "black" }, {name: "7♣", value: 7, color: "black" },
+  {name: "8♣", value: 8, color: "black" }, {name: "9♣", value: 9, color: "black" },
+  {name: "10♣", value: 10, color: "black" }, {name: "J♣", value: 10, color: "black" },
+  {name: "Q♣", value: 10, color: "black" }, {name: "K♣", value: 10, color: "black" },
+  {name: "A♣", value: 11, altValue: 1, color: "black"},
+  {name: "2♥", value: 2, color: "red" }, {name: "3♥", value: 3, color: "red" },
+  {name: "4♥", value: 4, color: "red" }, {name: "5♥", value: 5, color: "red" },
+  {name: "6♥", value: 6, color: "red" }, {name: "7♥", value: 7, color: "red" },
+  {name: "8♥", value: 8, color: "red" }, {name: "9♥", value: 9, color: "red" },
+  {name: "10♥", value: 10, color: "red" }, {name: "J♥", value: 10, color: "red" },
+  {name: "Q♥", value: 10, color: "red" }, {name: "K♥", value: 10, color: "red" },
+  {name: "A♥", value: 11, color: "red", altValue: 1},
+  {name: "2♦", value: 2, color: "red" }, {name: "3♦", value: 3, color: "red" },
+  {name: "4♦", value: 4, color: "red" }, {name: "5♦", value: 5, color: "red" },
+  {name: "6♦", value: 6, color: "red" }, {name: "7♦", value: 7, color: "red" },
+  {name: "8♦", value: 8, color: "red" }, {name: "9♦", value: 9, color: "red" },
+  {name: "10♦", value: 10, color: "red" }, {name: "J♦", value: 10, color: "red" },
+  {name: "Q♦", value: 10, color: "red" }, {name: "K♦", value: 10, color: "red" },
+  {name: "A♦", value: 11, altValue: 1, color: "red"}
 ];
 
-
+//////// HIDE BUTTONS AT START ////////
 $hit.hide();
 $stand.hide();
 $dealComp.hide();
+$submit.hide();
 
 //////// DRAW RANDOM CARD ////////
 
@@ -71,20 +64,6 @@ function drawCard(){
   var result = resultArr[0];
   return result;
 } //////// END DRAW CARD ////////
-
-// //////// PARSING FUNCTIONS ////////
-// function parseCard(card){
-//   if (typeof card === 'string'){
-//     var cardNum = card.substring(0,1);
-//     return cardNum;
-//   }
-// }
-//
-// function parseSymbol(card){
-//   var cardSym = card.substring(1,2);
-//   return cardSym;
-// }
-// //////// END PARSING FUNCTIONS ////////
 
 //////// CONTAINS AN ACE? ////////
 function containsAce(hand){
@@ -107,27 +86,7 @@ function Blackjack (){
   this.player2 = drawCard();
   this.gameState = [[this.player1, this.player2],[this.dealer1,this.dealer2]];
   this.stand = false;
-  this.handTotal = 0;
-}
-
-// Blackjack.prototype.hit = function (){
-//   $hit.show();
-//   $hit.hide();
-//   var playerHit = drawCard();
-//   this.gameState[0].push(playerHit);
-//   this.render();
-//   if (this.playerTotal() > 21){
-//     this.stand = true;
-//     $hit.hide();
-//     $stand.hide();
-//   };
-// };
-//
-// Blackjack.prototype.playerStand = function (){
-//   this.stand = true;
-//   $hit.hide();
-//   $stand.hide();
-// };
+} //////// END GAME CONSTRUCTOR ////////
 
 Blackjack.prototype.playerTotal = function(){
   var playerhand = this.gameState[0];
@@ -165,63 +124,62 @@ Blackjack.prototype.computerTotal = function(){
 
 Blackjack.prototype.render = function(){
 
-  $playerCards.empty();
-
-  $playerScore.empty();
-  $dealerScore.empty();
+  // $playerCards.empty();
 
   for (var i = 0; i < this.gameState[0].length; i++){
     var $span;
-
-    if (this.gameState[0][i].suit === "♥" || (this.gameState[0][i].suit) === "♦"){
-      $span = $('<span>').css("color", "red");
-      $span.append(this.gameState[0][i].name);
-      $playerCards.append($span);
-    } else {
-      $span = $('<span>').css("color", "black");
-      $span.append(this.gameState[0][i].name);
-      $playerCards.append($span);
-    } // end if
-  } // end for
-
-  for (var n = 0; i < this.gameState[1].length; n++){
-    var $span;
-    if (this.gameState[1][n].value === "X"){
-      $span = $('<span>').text(" X ");
-      $dealerCards.append($span);
-  } else if (this.gameState[1][n].suit === "♥" ||  this.gameState[1][n].suit === "♦"){
-      $span = $('<span>').css("color", "red");
-      $span.append(this.gameState[1][n]);
-      $dealerCards.append($span);
-    } else {
-      $span = $('<span>').css("color", "black");
-      $span.append(this.gameState[1][i]);
-      $dealerCards.append($span);
-    } // end if
-  } // end for
+    $span = $('<span>').css("color", this.gameState[0][i].color);
+    $span.append(this.gameState[0][i].name);
+    $playerCards.append($span);
+  }
 
   $playerScore.append("Player has " + this.playerTotal());
   $dealerScore.append("Computer has the " + this.gameState[1][1].name);
 
 };
 
-// Blackjack.prototype.addEventListeners = function(){
-//   var scope = this;
-//   $hit.on('click', scope.hit);
-//   $stand.on('click', scope.playerStand);
-//
-// };
+Blackjack.prototype.renderHit = function (card) {
+  $playerScore.empty();
+  var $span;
+  $span = $('<span>').css("color", card.color);
+  $span.append(card.name);
+  $playerCards.append($span);
 
+  var score = ("Player has " + this.playerTotal());
+  $playerScore.append(score);
+};
 
+Blackjack.prototype.renderDealer = function (){
+  var $span1 = $('<span>').text("XX");
+  $dealerCards.append($span1.delay(6000));
+
+  var $span2;
+  $span2 = $('<span>').css("color", this.gameState[1][1].color);
+  $span2.append(this.gameState[1][1].name);
+  $dealerCards.append($span2.delay(10000));
+
+};
+
+Blackjack.prototype.renderFirst = function (){
+  var card = this.gameState[1][0];
+  if (card.suit === "♥" || card.suit === "♦"){
+    $dealerCards.children().eq(0).text(card.name).css("color", "red");
+  } else {
+    $dealerCards.children().eq(0).text(card.name).css("color", "black");
+  }
+};
 
 
 $(document).ready(function(){
   var game = new Blackjack();
+
   $('#start').on('click', function(){
     $('#start').hide();
     game.render();
+    game.renderDealer();
     $hit.show();
     $stand.show();
+
   });
 
   $hit.on('click', function (){
@@ -229,17 +187,23 @@ $(document).ready(function(){
 
     var playerHit = drawCard();
     game.gameState[0].push(playerHit);
-    game.render();
+    game.renderHit(playerHit);
+
     if (game.playerTotal() > 21){
       game.stand = true;
       $hit.hide();
       $stand.hide();
       $dealComp.show();
-    };
+      $result.text("PLAYER BUSTS... GAME OVER!");
+      $dealComp.hide();
+      $submit.show();
+      $submit.on('click', function(){     //reloads page to play again;
+        location.reload();
+      });
+    }
   });
 
   $stand.on('click', function(){
-    game.stand = true;
     $hit.hide();
     $stand.hide();
     $dealComp.show();
@@ -247,26 +211,70 @@ $(document).ready(function(){
 
   $dealComp.on('click', function(){
     var dealerHand = game.gameState[1];
-    var counter = game.computerTotal()
-    while (counter < 17){
-      console.log(counter);
-      var computerHit = drawCard();
-      game.gameState[1].push(computerHit);
+    $dealerScore.hide();
+    game.renderFirst(); //FLIPS OVER DEALER'S FIRST CARD
 
-      counter = game.computerTotal();
-      console.log(counter);
+    var dTotal = game.computerTotal();
+    var counter = 1;
+    if (dTotal >= 17){
+      $dealerScore.text("Dealer has " + dTotal).fadeIn(5000);
     }
-    $result.text("Dealer has " + game.computerTotal());
+    while (dTotal < 17){
+      var computerHit = drawCard();                                 //need to add colors!!!!
+      var $span = $('<span>').text(computerHit.name).css("color",computerHit.color).fadeIn(4000*counter);
+      $dealerCards.append($span);
+      game.gameState[1].push(computerHit);
+      dTotal = game.computerTotal();
+      $dealerScore.text("Dealer has " + dTotal).fadeIn(5000*counter)
+      counter +=1
+    }
 
-  })
+    // $dealerScore.text("Dealer has " + game.computerTotal()).fadeIn(10000);
+
+    /// I COULD DISPLAY THE SCORE AFTER EACH HIT...
+
+    ////// I COULD ADD THE CSS COLOR AS A VALUE OF THE CARD OBJECTS!!!!!!!!!!!!!!!!!
+
+    $result.hide();
+    if (game.computerTotal() > 21){
+      $result.text("Dealer Busts!!! Player Wins!!!").fadeIn(12000);
+    } else if (game.computerTotal() === 21 && game.playerTotal() === 21){
+      $result.text("Push!!! Both players have Blackjack").fadeIn(12000);
+    } else if (game.playerTotal() === 21){
+      $result.text("Player has Blackjack!!!").fadeIn(12000);
+    } else if (game.computerTotal() > game.playerTotal()){
+      $result.text("Dealer Wins!").fadeIn(12000);
+    } else if (game.playerTotal() > game.computerTotal()){
+      $result.text("Player Wins!").fadeIn(12000);
+    } else if (game.computerTotal() === game.playerTotal()){
+      $result.text("Dealer Wins!").fadeIn(12000);
+    }
+    $dealComp.hide();
+
+    $submit.show();
+    $submit.on('click', function(){     //reloads page to play again;
+      location.reload();
+    });
+  });
 
 });
 
 
-///BE ABLE TO HIT UNTIL BUST OR STAND WHICH WILL SET STAND == TRUE
-/// THEN .... IT WILL BE COMPUTERS TURN WHEN STAND == TRUE
-
-
-// CREATE INDIVIDUAL BLACKJACK GAME
-// var game = new Blackjack();
-// game();
+// Blackjack.prototype.hit = function (){
+//   $hit.show();
+//   $hit.hide();
+//   var playerHit = drawCard();
+//   this.gameState[0].push(playerHit);
+//   this.render();
+//   if (this.playerTotal() > 21){
+//     this.stand = true;
+//     $hit.hide();
+//     $stand.hide();
+//   };
+// };
+//
+// Blackjack.prototype.playerStand = function (){
+//   this.stand = true;
+//   $hit.hide();
+//   $stand.hide();
+// };
