@@ -17,6 +17,7 @@ h1 {
   background-color: darkolivegreen;
   border: 2px solid firebrick;
   border-radius: 32%;
+  box-shadow: 2px 3px darkgrey;
 }
 
 h2 {
@@ -30,3 +31,15 @@ h2 {
 span {
   padding: 10px;
 }
+
+
+#result {
+  text-align: center;
+}
+
+
+
+
+
+
+/**/
