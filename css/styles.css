@@ -10,7 +10,7 @@ h1 {
 
 #cards {
   color: blanchedalmond;
-  height: 80vh;
+  height: 390px;
   text-align: center;
   margin: 0 auto;
   width: 80%;
@@ -65,7 +65,8 @@ span {
   padding: 20px;
 }
 
-
-/* JQuery animate, css transform
-
-/**/
+@media (max-width: 500px){
+  #cards {
+    height: 70vh;
+  }
+}
