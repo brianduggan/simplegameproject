@@ -1,3 +1,7 @@
+@-ms-viewport{
+  width: device-width;
+}
+
 body {
   background: url('http://diywoodwork.net/wp-content/uploads/2015/03/wood-background-design-decorating-7.jpg');
   font-family: 'Montserrat', sans-serif;
